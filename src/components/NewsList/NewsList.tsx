@@ -1,6 +1,7 @@
 import * as React from "react";
 import { NewsListqueryQuery } from "../../generated/graphql";
 import "./styles.css";
+import NewsProfileindex from "../NewsProfile/index";
 
 interface Props {
     data: NewsListqueryQuery;
@@ -17,7 +18,7 @@ const NewsList: React.FC<Props> = ({ data }) => (
         (row, i) =>
             !!row && (
             <li key={i} className={`${className}__item`}>
-                {row.id}
+                <NewsProfileindex NewsItemId={row.id}/>
             </li>
             ),
         )}
