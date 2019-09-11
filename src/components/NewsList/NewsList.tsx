@@ -1,6 +1,7 @@
 import * as React from "react";
 import { NewsListqueryQuery } from "../../generated/graphql";
 import "./styles.css";
+import NewsProfileindex from "../NewsProfile/index";
 
 export interface OwnProps {
     handleIdChange: (newId: string) => void
@@ -21,6 +22,7 @@ const NewsList: React.FC<Props> = ({ data, handleIdChange }) => (
         data.newsList.rows.map(
         (row, i) =>
             !!row && (
+<<<<<<< HEAD
                 <li
                 key={i}
                 className={`${className}__item`}
@@ -28,6 +30,11 @@ const NewsList: React.FC<Props> = ({ data, handleIdChange }) => (
               >
                 {row.id}
               </li>
+=======
+            <li key={i} className={`${className}__item`}>
+                <NewsProfileindex NewsItemId={row.id}/>
+            </li>
+>>>>>>> master
             ),
         )}
     </ol>
