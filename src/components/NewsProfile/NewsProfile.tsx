@@ -19,8 +19,12 @@ const NewsProfile: React.FC<Props> = ({ data }) => {
           {data.newsItem.title}
         </h1>
         <p className={`${className}__description`}>{data.newsItem.content}</p>
-        {!!data.newsItem.url}
-      </div>
+        {!!data.newsItem.url && !!data.newsItem.img && (
+        <div className={`${className}__image-list`}>
+          {<img src={data.newsItem.img} className={`${className}__image`} key={data.newsItem.img} />}
+        </div>
+      )}
+    </div>
     );
   };
 

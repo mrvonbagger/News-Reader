@@ -15,7 +15,7 @@ import NewsProfile from "./NewsProfile";
  */
 
 interface OwnProps {
-  id: number,
+  id: string;
 }
 
 const NewsProfileContainer = ({ id }: OwnProps) => {

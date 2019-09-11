@@ -15,7 +15,6 @@ const className = "NewsList";
 const NewsList: React.FC<Props> = ({ data, handleIdChange }) => (
 <div className={className}>
     <h3>News</h3>
-    {console.log(data.newsList.rows)}
     <ol className={`${className}__list`}>
     {!!data.newsList.rows &&
         data.newsList.rows.map(

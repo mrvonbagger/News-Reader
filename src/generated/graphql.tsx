@@ -1,103 +1,97 @@
-import gql from 'graphql-tag';
-import * as React from 'react';
-import * as ApolloReactCommon from '@apollo/react-common';
-import * as ApolloReactComponents from '@apollo/react-components';
-import * as ApolloReactHoc from '@apollo/react-hoc';
-import * as ApolloReactHooks from '@apollo/react-hooks';
+import * as ApolloReactCommon from "@apollo/react-common";
+import * as ApolloReactComponents from "@apollo/react-components";
+import * as ApolloReactHoc from "@apollo/react-hoc";
+import * as ApolloReactHooks from "@apollo/react-hooks";
+import gql from "graphql-tag";
+import * as React from "react";
 export type Maybe<T> = T | null;
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 /** All built-in and custom scalars, mapped to their actual values */
-export type Scalars = {
-  ID: string,
-  String: string,
-  Boolean: boolean,
-  Int: number,
-  Float: number,
+export interface Scalars {
+  ID: string;
+  String: string;
+  Boolean: boolean;
+  Int: number;
+  Float: number;
   /** Javascript Date object */
-  Date: any,
-};
+  Date: any;
+}
 
-export type Comment = {
-   __typename?: 'Comment',
-  id: Scalars['ID'],
-  email: Scalars['String'],
-  content: Scalars['String'],
-  createdDate: Scalars['Date'],
-};
+export interface Comment {
+   __typename?: "Comment";
+  id: Scalars["ID"];
+  email: Scalars["String"];
+  content: Scalars["String"];
+  createdDate: Scalars["Date"];
+}
 
-export type CreateCommentInput = {
-  newsId: Scalars['ID'],
-  email: Scalars['String'],
-  content: Scalars['String'],
-};
+export interface CreateCommentInput {
+  newsId: Scalars["ID"];
+  email: Scalars["String"];
+  content: Scalars["String"];
+}
 
+export interface Mutation {
+   __typename?: "Mutation";
+  createComment: Comment;
+}
 
-export type Mutation = {
-   __typename?: 'Mutation',
-  createComment: Comment,
-};
+export interface MutationCreateCommentArgs {
+  input: CreateCommentInput;
+}
 
+export interface NewsItem {
+   __typename?: "NewsItem";
+  id: Scalars["ID"];
+  title: Scalars["String"];
+  content: Scalars["String"];
+  url: Scalars["String"];
+  img?: Maybe<Scalars["String"]>;
+  comments: Array<Comment>;
+}
 
-export type MutationCreateCommentArgs = {
-  input: CreateCommentInput
-};
+export interface NewsListResult {
+   __typename?: "NewsListResult";
+  totalRows: Scalars["Int"];
+  rows: Array<NewsItem>;
+}
 
-export type NewsItem = {
-   __typename?: 'NewsItem',
-  id: Scalars['ID'],
-  title: Scalars['String'],
-  content: Scalars['String'],
-  url: Scalars['String'],
-  img?: Maybe<Scalars['String']>,
-  comments: Array<Comment>,
-};
+export interface Query {
+   __typename?: "Query";
+  newsItem?: Maybe<NewsItem>;
+  newsList: NewsListResult;
+}
 
-export type NewsListResult = {
-   __typename?: 'NewsListResult',
-  totalRows: Scalars['Int'],
-  rows: Array<NewsItem>,
-};
+export interface QueryNewsItemArgs {
+  id: Scalars["ID"];
+}
 
-export type Query = {
-   __typename?: 'Query',
-  newsItem?: Maybe<NewsItem>,
-  newsList: NewsListResult,
-};
-
-
-export type QueryNewsItemArgs = {
-  id: Scalars['ID']
-};
-
-
-export type QueryNewsListArgs = {
-  skip: Scalars['Int'],
-  limit: Scalars['Int']
-};
-export type NewsListqueryQueryVariables = {};
-
+export interface QueryNewsListArgs {
+  skip: Scalars["Int"];
+  limit: Scalars["Int"];
+}
+export interface NewsListqueryQueryVariables {}
 
 export type NewsListqueryQuery = (
-  { __typename?: 'Query' }
+  { __typename?: "Query" }
   & { newsList: (
-    { __typename?: 'NewsListResult' }
+    { __typename?: "NewsListResult" }
     & { rows: Array<(
-      { __typename?: 'NewsItem' }
-      & Pick<NewsItem, 'id'>
+      { __typename?: "NewsItem" }
+      & Pick<NewsItem, "id">
     )> }
   ) }
 );
 
-export type NewsItemQueryQueryVariables = {
-  id: Scalars['ID']
-};
-
+export interface NewsItemQueryQueryVariables {
+  id: Scalars["ID"];
+}
 
 export type NewsItemQueryQuery = (
-  { __typename?: 'Query' }
+  { __typename?: "Query" }
   & { newsItem: Maybe<(
-    { __typename?: 'NewsItem' }
-    & Pick<NewsItem, 'title' | 'content' | 'url' | 'img'>
+    { __typename?: "NewsItem" }
+    & Pick<NewsItem, "title" | "content" | "url" | "img">
   )> }
 );
 
@@ -110,12 +104,12 @@ export const NewsListqueryDocument = gql`
   }
 }
     `;
-export type NewsListqueryComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<NewsListqueryQuery, NewsListqueryQueryVariables>, 'query'>;
+export type NewsListqueryComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<NewsListqueryQuery, NewsListqueryQueryVariables>, "query">;
 
-    export const NewsListqueryComponent = (props: NewsListqueryComponentProps) => (
+export const NewsListqueryComponent = (props: NewsListqueryComponentProps) => (
       <ApolloReactComponents.Query<NewsListqueryQuery, NewsListqueryQueryVariables> query={NewsListqueryDocument} {...props} />
     );
-    
+
 export type NewsListqueryProps<TChildProps = {}> = ApolloReactHoc.DataProps<NewsListqueryQuery, NewsListqueryQueryVariables> & TChildProps;
 export function withNewsListquery<TProps, TChildProps = {}>(operationOptions?: ApolloReactHoc.OperationOption<
   TProps,
@@ -123,18 +117,18 @@ export function withNewsListquery<TProps, TChildProps = {}>(operationOptions?: A
   NewsListqueryQueryVariables,
   NewsListqueryProps<TChildProps>>) {
     return ApolloReactHoc.withQuery<TProps, NewsListqueryQuery, NewsListqueryQueryVariables, NewsListqueryProps<TChildProps>>(NewsListqueryDocument, {
-      alias: 'newsListquery',
-      ...operationOptions
+      alias: "newsListquery",
+      ...operationOptions,
     });
-};
+}
 
-    export function useNewsListqueryQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<NewsListqueryQuery, NewsListqueryQueryVariables>) {
+export function useNewsListqueryQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<NewsListqueryQuery, NewsListqueryQueryVariables>) {
       return ApolloReactHooks.useQuery<NewsListqueryQuery, NewsListqueryQueryVariables>(NewsListqueryDocument, baseOptions);
     }
-      export function useNewsListqueryLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<NewsListqueryQuery, NewsListqueryQueryVariables>) {
+export function useNewsListqueryLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<NewsListqueryQuery, NewsListqueryQueryVariables>) {
         return ApolloReactHooks.useLazyQuery<NewsListqueryQuery, NewsListqueryQueryVariables>(NewsListqueryDocument, baseOptions);
       }
-      
+
 export type NewsListqueryQueryHookResult = ReturnType<typeof useNewsListqueryQuery>;
 export type NewsListqueryQueryResult = ApolloReactCommon.QueryResult<NewsListqueryQuery, NewsListqueryQueryVariables>;
 export const NewsItemQueryDocument = gql`
@@ -147,12 +141,12 @@ export const NewsItemQueryDocument = gql`
   }
 }
     `;
-export type NewsItemQueryComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<NewsItemQueryQuery, NewsItemQueryQueryVariables>, 'query'> & ({ variables: NewsItemQueryQueryVariables; skip?: boolean; } | { skip: boolean; });
+export type NewsItemQueryComponentProps = Omit<ApolloReactComponents.QueryComponentOptions<NewsItemQueryQuery, NewsItemQueryQueryVariables>, "query"> & ({ variables: NewsItemQueryQueryVariables; skip?: boolean; } | { skip: boolean; });
 
-    export const NewsItemQueryComponent = (props: NewsItemQueryComponentProps) => (
+export const NewsItemQueryComponent = (props: NewsItemQueryComponentProps) => (
       <ApolloReactComponents.Query<NewsItemQueryQuery, NewsItemQueryQueryVariables> query={NewsItemQueryDocument} {...props} />
     );
-    
+
 export type NewsItemQueryProps<TChildProps = {}> = ApolloReactHoc.DataProps<NewsItemQueryQuery, NewsItemQueryQueryVariables> & TChildProps;
 export function withNewsItemQuery<TProps, TChildProps = {}>(operationOptions?: ApolloReactHoc.OperationOption<
   TProps,
@@ -160,17 +154,17 @@ export function withNewsItemQuery<TProps, TChildProps = {}>(operationOptions?: A
   NewsItemQueryQueryVariables,
   NewsItemQueryProps<TChildProps>>) {
     return ApolloReactHoc.withQuery<TProps, NewsItemQueryQuery, NewsItemQueryQueryVariables, NewsItemQueryProps<TChildProps>>(NewsItemQueryDocument, {
-      alias: 'newsItemQuery',
-      ...operationOptions
+      alias: "newsItemQuery",
+      ...operationOptions,
     });
-};
+}
 
-    export function useNewsItemQueryQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<NewsItemQueryQuery, NewsItemQueryQueryVariables>) {
+export function useNewsItemQueryQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<NewsItemQueryQuery, NewsItemQueryQueryVariables>) {
       return ApolloReactHooks.useQuery<NewsItemQueryQuery, NewsItemQueryQueryVariables>(NewsItemQueryDocument, baseOptions);
     }
-      export function useNewsItemQueryLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<NewsItemQueryQuery, NewsItemQueryQueryVariables>) {
+export function useNewsItemQueryLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<NewsItemQueryQuery, NewsItemQueryQueryVariables>) {
         return ApolloReactHooks.useLazyQuery<NewsItemQueryQuery, NewsItemQueryQueryVariables>(NewsItemQueryDocument, baseOptions);
       }
-      
+
 export type NewsItemQueryQueryHookResult = ReturnType<typeof useNewsItemQueryQuery>;
 export type NewsItemQueryQueryResult = ApolloReactCommon.QueryResult<NewsItemQueryQuery, NewsItemQueryQueryVariables>;

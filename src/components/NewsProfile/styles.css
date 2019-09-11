@@ -11,3 +11,15 @@
 margin-top: 0;
 margin-bottom: 4px;
 }
+
+.NewsProfile__image-list {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 40px;
+    padding-bottom: 100px;
+}
+
+.NewsProfile__image {
+    width: 100%;
+}
