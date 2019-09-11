@@ -12,12 +12,8 @@ const App: React.FC = () => {
 
   return (
       <div className="App">
-<<<<<<< HEAD
         <NewsList handleIdChange={handleIdChange}/>
         <NewsProfile id={id}/>
-=======
-        <NewsList />
->>>>>>> master
       </div>
   );
 };
