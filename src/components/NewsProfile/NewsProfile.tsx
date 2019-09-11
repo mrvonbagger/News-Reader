@@ -10,7 +10,7 @@ const className = "NewsProfile";
 
 const NewsProfile: React.FC<Props> = ({ data }) => {
     if (!data.newsItem) {
-      return <div>No launch available</div>;
+      return <div>No news available</div>;
     }
 
     return (

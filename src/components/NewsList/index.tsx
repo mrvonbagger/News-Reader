@@ -1,8 +1,8 @@
 import * as React from "react";
 import { useNewsListqueryQuery } from "../../generated/graphql";
-import NewsList from "./NewsList";
+import NewsList, { OwnProps } from "./NewsList";
 
-const NewsListContainer = () => {
+const NewsListContainer = (props: OwnProps) => {
     const {data, error, loading } = useNewsListqueryQuery();
 
     if (loading) {
@@ -13,7 +13,7 @@ const NewsListContainer = () => {
         return <div>Error</div>;
     }
 
-    return <NewsList data={data}/>;
+    return <NewsList data={data} {...props} />;
 };
 
 export default NewsListContainer;
