@@ -1,18 +1,17 @@
 import * as React from "react";
 import { NewsListqueryQuery } from "../../generated/graphql";
 import "./styles.css";
+import NewsProfileindex from "../NewsProfile/index"; 
 
-export interface OwnProps {
-    handleIdChange: (newId: string) => void
-}
-
-interface Props extends OwnProps {
+interface Props {
     data: NewsListqueryQuery;
 }
 
 const className = "NewsList";
 
-const NewsList: React.FC<Props> = ({ data, handleIdChange }) => (
+let NewsItemMap = new Map();
+
+const NewsList: React.FC<Props> = ({ data }) => (
 <div className={className}>
     <h3>News</h3>
     <ol className={`${className}__list`}>
@@ -23,9 +22,8 @@ const NewsList: React.FC<Props> = ({ data, handleIdChange }) => (
                 <li
                 key={i}
                 className={`${className}__item`}
-                onClick={() => handleIdChange(row.id!)}
-              >
-                {row.id}
+                >
+                    <NewsProfileindex NewsListRow={row.id}/>
               </li>
             ),
         )}

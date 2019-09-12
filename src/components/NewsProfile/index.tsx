@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useNewsItemQueryQuery } from "../../generated/graphql";
+import { useNewsItemQueryQuery} from "../../generated/graphql";
 import NewsProfile from "./NewsProfile";
 
 /* [
@@ -14,20 +14,19 @@ import NewsProfile from "./NewsProfile";
 ]
  */
 
-interface OwnProps {
-  id: string;
+interface Props {
+  NewsListRow: string;
 }
 
-const NewsProfileContainer = ({ id }: OwnProps) => {
-    const { data, error, loading, refetch } = useNewsItemQueryQuery({
-      variables: { id: String(id) },
+let NewsItemMap = new Map();
+
+const NewsProfileContainer: React.FC<Props> = ({ NewsListRow }) => {
+    const { data, error, loading } = useNewsItemQueryQuery({
+      variables: { id: NewsListRow },
     });
-    React.useEffect(() => {
-      refetch();
-    }, [id]);
 
     if (loading) {
-      return <div>Loading...</div>;
+      return null;
     }
     if (error) {
       return <div>ERROR</div>;
@@ -35,7 +34,8 @@ const NewsProfileContainer = ({ id }: OwnProps) => {
     if (!data) {
       return <div>Select a flight from the panel</div>;
     }
+    NewsItemMap.set(NewsListRow, data.newsItem);
     return <NewsProfile data={data} />;
-  };
+};
 
 export default NewsProfileContainer;

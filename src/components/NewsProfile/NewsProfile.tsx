@@ -1,19 +1,20 @@
 import * as React from "react";
-import { NewsItemQueryQuery } from "../../generated/graphql";
 import "./styles.css";
 
 interface Props {
-    data: NewsItemQueryQuery;
+    data: any;
 }
 
 const className = "NewsProfile";
 
 const NewsProfile: React.FC<Props> = ({ data }) => {
-    if (!data.newsItem) {
-      return <div>No news available</div>;
+  console.log(data)
+  if (!data.newsItem.url) {
+      return <div>Not found</div>;
     }
 
-    return (
+  return (
+    <a href={data.newsItem.url}>
       <div className={className}>
         <h1 className={`${className}__title`}>
           {data.newsItem.title}
@@ -21,10 +22,11 @@ const NewsProfile: React.FC<Props> = ({ data }) => {
         <p className={`${className}__description`}>{data.newsItem.content}</p>
         {!!data.newsItem.url && !!data.newsItem.img && (
         <div className={`${className}__image-list`}>
-          {<img src={data.newsItem.img} className={`${className}__image`} key={data.newsItem.img} />}
+          {<img src={data.newsItem.img} className={`${className}__image`} key={data.newsItem.img}/>}
         </div>
       )}
     </div>
+    </a>
     );
   };
 
