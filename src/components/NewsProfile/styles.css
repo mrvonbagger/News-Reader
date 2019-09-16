@@ -14,3 +14,11 @@ margin-bottom: 4px;
 .NewsProfile__image {
     width: 100%;
 }
+
+.NewsProfile__image:hover {
+    transform: scale(1);
+}
+
+.NewsProfile {
+    align-content: center;
+}

@@ -12,7 +12,7 @@ const className = "NewsList";
 let NewsItemMap = new Map();
 
 const NewsList: React.FC<Props> = ({ data }) => (
-<div className={className}>
+<div className="Content">
     <h3>News</h3>
     <ol className={`${className}__list`}>
     {!!data.newsList.rows &&

@@ -1,20 +1,25 @@
-.NewsList {
-    height: 100vh;
-    overflow: hidden auto;
-    background-color: #ececec;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-  
-  .NewsList__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .NewsList__item {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-top: 1px solid #919191;
-    cursor: pointer;
-  }
+.Content {
+  overflow: hidden auto;
+  background-color: #ececec;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: block;
+}
+
+.NewsList__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+}
+
+.NewsList__item {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid #919191;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

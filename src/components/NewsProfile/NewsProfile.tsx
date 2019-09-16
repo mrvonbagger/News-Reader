@@ -14,10 +14,11 @@ const NewsProfile: React.FC<Props> = ({ data }) => {
     }
 
   return (
-    <a href={data.newsItem.url}>
       <div className={className}>
         <h1 className={`${className}__title`}>
-          {data.newsItem.title}
+          <a href={data.newsItem.url}>
+            {data.newsItem.title}
+          </a>
         </h1>
         <p className={`${className}__description`}>{data.newsItem.content}</p>
         {!!data.newsItem.url && !!data.newsItem.img && (
@@ -26,7 +27,6 @@ const NewsProfile: React.FC<Props> = ({ data }) => {
         </div>
       )}
     </div>
-    </a>
     );
   };
 
