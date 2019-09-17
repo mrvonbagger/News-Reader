@@ -1,6 +1,7 @@
 import * as React from "react";
 import { NewsListqueryQuery } from "../../generated/graphql";
 import "./styles.css";
+import Comments from "../Comments/comments";
 import NewsProfileindex from "../NewsProfile/index"; 
 
 interface Props {
@@ -8,8 +9,6 @@ interface Props {
 }
 
 const className = "NewsList";
-
-let NewsItemMap = new Map();
 
 const NewsList: React.FC<Props> = ({ data }) => (
 <div className="Content">
@@ -24,6 +23,7 @@ const NewsList: React.FC<Props> = ({ data }) => (
                 className={`${className}__item`}
                 >
                     <NewsProfileindex NewsListRow={row.id}/>
+                    <Comments newsId={row.id} />
               </li>
             ),
         )}

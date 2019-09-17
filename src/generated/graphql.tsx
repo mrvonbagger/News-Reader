@@ -70,6 +70,18 @@ export interface QueryNewsListArgs {
   skip: Scalars["Int"];
   limit: Scalars["Int"];
 }
+export interface CreateCommentMutationVariables {
+  input: CreateCommentInput;
+}
+
+export type CreateCommentMutation = (
+  { __typename?: "Mutation" }
+  & { createComment: (
+    { __typename?: "Comment" }
+    & Pick<Comment, "id" | "email" | "content" | "createdDate">
+  ) }
+);
+
 export interface NewsListqueryQueryVariables {}
 
 export type NewsListqueryQuery = (
@@ -95,6 +107,41 @@ export type NewsItemQueryQuery = (
   )> }
 );
 
+export const CreateCommentDocument = gql`
+    mutation CreateComment($input: CreateCommentInput!) {
+  createComment(input: $input) {
+    id
+    email
+    content
+    createdDate
+  }
+}
+    `;
+export type CreateCommentMutationFn = ApolloReactCommon.MutationFunction<CreateCommentMutation, CreateCommentMutationVariables>;
+export type CreateCommentComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<CreateCommentMutation, CreateCommentMutationVariables>, "mutation">;
+
+export const CreateCommentComponent = (props: CreateCommentComponentProps) => (
+      <ApolloReactComponents.Mutation<CreateCommentMutation, CreateCommentMutationVariables> mutation={CreateCommentDocument} {...props} />
+    );
+
+export type CreateCommentProps<TChildProps = {}> = ApolloReactHoc.MutateProps<CreateCommentMutation, CreateCommentMutationVariables> & TChildProps;
+export function withCreateComment<TProps, TChildProps = {}>(operationOptions?: ApolloReactHoc.OperationOption<
+  TProps,
+  CreateCommentMutation,
+  CreateCommentMutationVariables,
+  CreateCommentProps<TChildProps>>) {
+    return ApolloReactHoc.withMutation<TProps, CreateCommentMutation, CreateCommentMutationVariables, CreateCommentProps<TChildProps>>(CreateCommentDocument, {
+      alias: "createComment",
+      ...operationOptions,
+    });
+}
+
+export function useCreateCommentMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<CreateCommentMutation, CreateCommentMutationVariables>) {
+      return ApolloReactHooks.useMutation<CreateCommentMutation, CreateCommentMutationVariables>(CreateCommentDocument, baseOptions);
+    }
+export type CreateCommentMutationHookResult = ReturnType<typeof useCreateCommentMutation>;
+export type CreateCommentMutationResult = ApolloReactCommon.MutationResult<CreateCommentMutation>;
+export type CreateCommentMutationOptions = ApolloReactCommon.BaseMutationOptions<CreateCommentMutation, CreateCommentMutationVariables>;
 export const NewsListqueryDocument = gql`
     query NewsListquery {
   newsList(skip: 0, limit: 20) {

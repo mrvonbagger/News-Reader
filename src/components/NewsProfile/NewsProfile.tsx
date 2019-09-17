@@ -3,12 +3,13 @@ import "./styles.css";
 
 interface Props {
     data: any;
+    comment?: string;
 }
 
 const className = "NewsProfile";
 
 const NewsProfile: React.FC<Props> = ({ data }) => {
-  console.log(data)
+  console.log(data);
   if (!data.newsItem.url) {
       return <div>Not found</div>;
     }
