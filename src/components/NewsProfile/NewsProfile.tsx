@@ -16,17 +16,14 @@ const NewsProfile: React.FC<Props> = ({ data }) => {
 
   return (
       <div className={className}>
-        <h1 className={`${className}__title`}>
-          <a href={data.newsItem.url}>
-            {data.newsItem.title}
-          </a>
-        </h1>
-        <p className={`${className}__description`}>{data.newsItem.content}</p>
-        {!!data.newsItem.url && !!data.newsItem.img && (
+        <a href={data.newsItem.url}>
         <div className={`${className}__image-list`}>
           {<img src={data.newsItem.img} className={`${className}__image`} key={data.newsItem.img}/>}
         </div>
-      )}
+        <h1 className={`${className}__title`}>
+            {data.newsItem.title}
+        </h1>
+        </a>
     </div>
     );
   };

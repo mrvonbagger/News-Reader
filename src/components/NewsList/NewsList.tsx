@@ -1,8 +1,9 @@
 import * as React from "react";
+import { MdDragHandle } from "react-icons/md";
 import { NewsListqueryQuery } from "../../generated/graphql";
-import "./styles.css";
 import Comments from "../Comments/comments";
-import NewsProfileindex from "../NewsProfile/index"; 
+import NewsProfileindex from "../NewsProfile/index";
+import "./styles.css";
 
 interface Props {
     data: NewsListqueryQuery;
@@ -12,18 +13,15 @@ const className = "NewsList";
 
 const NewsList: React.FC<Props> = ({ data }) => (
 <div className="Content">
-    <h3>News</h3>
+    <div className="header">News Reader </div>
     <ol className={`${className}__list`}>
     {!!data.newsList.rows &&
         data.newsList.rows.map(
         (row, i) =>
             !!row && (
-                <li
-                key={i}
-                className={`${className}__item`}
-                >
+                <li key={i}
+                className={`${className}__item`}>
                     <NewsProfileindex NewsListRow={row.id}/>
-                    <Comments newsId={row.id} />
               </li>
             ),
         )}
