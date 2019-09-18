@@ -1,14 +1,14 @@
 .NewsProfile__title {
-
-}
-
-.NewsProfile__image-list {
-    margin-right: 20px;
+    text-align: center;
 }
 
 .NewsProfile__image {
-    width: 100%;
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .NewsProfile {
+    cursor: pointer;
 }

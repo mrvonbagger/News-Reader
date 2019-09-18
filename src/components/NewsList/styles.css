@@ -1,5 +1,6 @@
 .Content {
-  overflow: hidden auto;
+  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .NewsList__list {
@@ -7,6 +8,7 @@
   display: grid;
   grid-template-columns: 50% 50%;
   grid-gap: 2em;
+  padding-right: 40px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -16,7 +18,11 @@
 }
 
 .NewsList__item {
-  transition: all .2s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.NewsList__item:hover {
+  transform: scale(1.04);
 }
 
 a {
