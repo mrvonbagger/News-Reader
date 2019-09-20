@@ -10,10 +10,6 @@ interface Props {
 
 const className = "NewsList";
 
-const handleClick = () => {
-    console.log("clicked");
-};
-
 const NewsList: React.FC<Props> = ({ data }) => (
 <div className="Content">
     <div className="navbar">
@@ -25,8 +21,7 @@ const NewsList: React.FC<Props> = ({ data }) => (
         (row, i) =>
             !!row && (
                 <li key={i}
-                className={`${className}__item`}
-                onClick={() => handleClick()}>
+                className={`${className}__item`}>
                     <NewsProfileindex NewsListRow={row.id}/>
               </li>
             ),
