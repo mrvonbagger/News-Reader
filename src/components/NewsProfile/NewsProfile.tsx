@@ -6,24 +6,14 @@ interface Props {
     data: any;
 }
 
-const className = "NewsProfile";
-
 const NewsProfile: React.FC<Props> = ({ data }) => {
 
-  // const UsersPage = () => {
-  //   return (
-  //     <>
-  //       <h3>News Description</h3>
-  //       {users.map((user, index) => (
-  //         <h5 key={index}>
-  //           <Link to={`/user/${index + 1}`}>{user.name}'s Page</Link>
-  //         </h5>
-  //       ))}
-  //     </>
-  //   );
-  // };
+  const className = "NewsProfile";
 
   function Index() {
+
+    const className = "NewsProfile";
+
     return (
       <div className={className}>
         <div className={`${className}__image-list`}>
@@ -37,6 +27,9 @@ const NewsProfile: React.FC<Props> = ({ data }) => {
   }
 
   function About() {
+
+    const className = "NewsDescription";
+
     return (
       <div className={className}>
         <div className={`${className}__image-list`}>
@@ -51,6 +44,7 @@ const NewsProfile: React.FC<Props> = ({ data }) => {
   }
 
   return (
+
     <Router>
       <div>
         <nav>
@@ -59,14 +53,15 @@ const NewsProfile: React.FC<Props> = ({ data }) => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/content/">About</Link>
+              <Link to={"/" + data.newsItem.title.split(" ").join("_") + "/"}>Content</Link>
             </li>
           </ul>
         </nav>
-
-        <Route path="/" exact component={Index} />
-        <Route exact path="/content/" component={About} />
       </div>
+
+        <Route path="/" component={Index} />
+        <Route path={"/" + data.newsItem.title.split(" ").join("_") + "/"} component={About} />
+
     </Router>
   );
 };
