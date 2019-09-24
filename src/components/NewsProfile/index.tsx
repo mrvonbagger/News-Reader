@@ -23,7 +23,7 @@ const NewsProfileContainer = ({ NewsListRow, singleItem }: Props) => {
       return <div>Select a flight from the panel</div>;
     }
 
-    return <NewsProfile data={data} singleItem={singleItem}/>;
+    return <NewsProfile data={data} singleItem={singleItem} NewsID={NewsListRow}/>;
 };
 
 export default NewsProfileContainer;
