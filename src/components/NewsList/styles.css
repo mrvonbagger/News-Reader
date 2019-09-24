@@ -30,11 +30,13 @@ a {
   text-decoration: none;
 }
 
-.header {
+.navbar {
   background: #085965;
-  text-align: center;
   height: 50px;
-  line-height: 50px;
+}
+
+.header {
+  text-align: center;
   font-size: 20px;
   font-weight: 700;
   color: white;

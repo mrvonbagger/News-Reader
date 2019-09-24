@@ -1,5 +1,7 @@
 .NewsProfile__title {
     text-align: center;
+    display: table-cell;
+    vertical-align: bottom;
 }
 
 .NewsProfile__image {

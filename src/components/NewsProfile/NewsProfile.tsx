@@ -1,69 +1,29 @@
 import * as React from "react";
-import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 import "./styles.css";
 
 interface Props {
     data: any;
 }
 
+const className = "NewsProfile";
+
 const NewsProfile: React.FC<Props> = ({ data }) => {
-
-  const className = "NewsProfile";
-
-  function Index() {
-
-    const className = "NewsProfile";
-
-    return (
-      <div className={className}>
-        <div className={`${className}__image-list`}>
-          {<img src={data.newsItem.img} className={`${className}__image`} key={data.newsItem.img}/>}
-        </div>
-        <h1 className={`${className}__title`}>
-            {data.newsItem.title}
-        </h1>
-    </div>
-    );
-  }
-
-  function About() {
-
-    const className = "NewsDescription";
-
-    return (
-      <div className={className}>
-        <div className={`${className}__image-list`}>
-          {<img src={data.newsItem.img} className={`${className}__image`} key={data.newsItem.img}/>}
-        </div>
-        <h1 className={`${className}__title`}>
-            {data.newsItem.title}
-        </h1>
-        <p className={`${className}__description`}>{data.newsItem.content}</p>
-    </div>
-    );
-  }
+  if (!data.newsItem.url) {
+      return <div>Not found</div>;
+    }
 
   return (
-
-    <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to={"/" + data.newsItem.title.split(" ").join("_") + "/"}>Content</Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
-
-        <Route path="/" component={Index} />
-        <Route path={"/" + data.newsItem.title.split(" ").join("_") + "/"} component={About} />
-
-    </Router>
-  );
-};
+      <div className={className}>
+        
+        <div className={`${className}__image-list`}>
+          {<img src={data.newsItem.img} alt="Image for news story" className={`${className}__image`} key={data.newsItem.img}/>}
+        </div>
+        <h1 className={`${className}__title`}>
+            {data.newsItem.title}
+        </h1>
+       
+    </div>
+    );
+  };
 
 export default NewsProfile;
