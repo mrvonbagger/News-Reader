@@ -3,9 +3,13 @@
   overflow-x: hidden;
 }
 
-@keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .NewsList__list {
@@ -14,7 +18,7 @@
   grid-template-columns: 50% 50%;
   grid-gap: 2em;
   padding-right: 40px;
-  animation: fadein 1s;
+  animation: 0.5s ease-out 0s 1 slideInFromRight;
 }
 
 @media only screen and (max-width: 600px) {

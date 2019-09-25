@@ -16,7 +16,9 @@ const className = "NewsList";
 
 const NewsList: React.FC<Props> = ({ data }) => {
 
-    const [newsID, setID] = useState("");
+    const [newsID, setID] = useState(window.location.pathname.split(":")[1]);
+
+    console.log("newsID");
 
     function Index() {
         return (
@@ -25,7 +27,7 @@ const NewsList: React.FC<Props> = ({ data }) => {
                     data.newsList.rows.map(
                         (row, i) =>
                             !!row && (
-                                <Link to={`/content/${row.id}`}
+                                <Link to={`/content/:${row.id}`}
                                 onClick={() => setID(row.id)}>
                                     <li key={i}
                                         className={`${className}__item`}>
@@ -40,7 +42,6 @@ const NewsList: React.FC<Props> = ({ data }) => {
     }
       
     function Content() {
-        console.log(newsID)
         return (
             <NewsProfileindex NewsListRow={newsID} singleItem={true}/>
         );
@@ -58,7 +59,7 @@ const NewsList: React.FC<Props> = ({ data }) => {
             </div>
 
             <Route exact path="/" component={Index} />
-            <Route path={`/content/:contentId`} component={Content} />
+            <Route path={`/content/:newsID`} component={Content} />
         </Router>
     );
 };
