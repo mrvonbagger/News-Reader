@@ -1,5 +1,4 @@
 .Content {
-  overflow: hidden;
   overflow-x: hidden;
 }
 
@@ -18,21 +17,16 @@
   grid-template-columns: 50% 50%;
   grid-gap: 2em;
   padding-right: 40px;
+  padding-left: 10px;
+  padding-bottom: 20px;
   animation: 0.5s ease-out 0s 1 slideInFromRight;
+  padding-top: 50px;
 }
 
 @media only screen and (max-width: 600px) {
   .NewsList__list {
     grid-template-columns: 100%;
   }
-}
-
-.NewsList__item {
-  transition: all .4s ease-in-out;
-}
-
-.NewsList__item:hover {
-  transform: scale(1.04);
 }
 
 a {
@@ -47,6 +41,8 @@ a {
   display: grid;
   grid-template-columns: 7% 86% 7%;
   align-items: center;
+  position: fixed;
+  width: 100%;
 }
 
 .header {

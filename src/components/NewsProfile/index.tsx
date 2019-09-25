@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useNewsItemQueryQuery} from "../../generated/graphql";
 import NewsProfile from "./NewsProfile";
-import { useEffect } from "react";
 
 interface Props {
   NewsListRow: string;
@@ -9,7 +8,7 @@ interface Props {
 }
 
 const NewsProfileContainer = ({ NewsListRow, singleItem }: Props) => {
-    const { data, error, loading, refetch } = useNewsItemQueryQuery({
+    const { data, error, loading } = useNewsItemQueryQuery({
       variables: { id: NewsListRow },
     });
 

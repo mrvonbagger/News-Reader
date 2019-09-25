@@ -18,21 +18,24 @@ const NewsList: React.FC<Props> = ({ data }) => {
 
     const [newsID, setID] = useState(window.location.pathname.split(":")[1]);
 
-    console.log("newsID");
-
     function Index() {
+
         return (
             <div className={`${className}__list`}>
+
                 {!!data.newsList.rows &&
                     data.newsList.rows.map(
                         (row, i) =>
                             !!row && (
+
                                 <Link to={`/content/:${row.id}`}
                                 onClick={() => setID(row.id)}>
+
                                     <li key={i}
                                         className={`${className}__item`}>
                                         <NewsProfileindex NewsListRow={row.id} singleItem={false}/>
                                     </li>
+
                                 </Link>
                             )
                         )
@@ -42,6 +45,7 @@ const NewsList: React.FC<Props> = ({ data }) => {
     }
       
     function Content() {
+
         return (
             <NewsProfileindex NewsListRow={newsID} singleItem={true}/>
         );
@@ -49,8 +53,8 @@ const NewsList: React.FC<Props> = ({ data }) => {
 
 
     return (
-        // Implement hashrouter
         <Router>
+
             <div className="navbar">
                 <div className="icon">
                     <Link to="/"><FontAwesomeIcon icon={faHome} /></Link>
@@ -60,6 +64,7 @@ const NewsList: React.FC<Props> = ({ data }) => {
 
             <Route exact path="/" component={Index} />
             <Route path={`/content/:newsID`} component={Content} />
+
         </Router>
     );
 };

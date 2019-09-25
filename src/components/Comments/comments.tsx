@@ -1,7 +1,7 @@
 import { useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import React, { useState } from "react";
-import NewsProfile from "../NewsProfile/NewsProfile";
+import "./styles.css";
 
 const SAVE_COMMENT = gql`
 mutation CreateComment($input: CreateCommentInput!) {
@@ -32,7 +32,7 @@ const AddComment = ({newsId}: NewComment) => {
   });
 
   return (
-    <div>
+    <div className = "CommentContainer">
       <h3>Add a Comment</h3>
       {error ? <p>Oh no! {error.message}</p> : null}
       {data && data.saveComment ? <p>Saved!</p> : null}
