@@ -38,11 +38,19 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    max-width: 50%;
 }
+
+@media only screen and (max-width: 700px) {
+    .NewsContent__image {
+      width: 300px;
+      height: 150px;
+    }
+  }
 
 .Content_description {
     margin: 10px;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .NewsContent__title {
@@ -50,4 +58,5 @@
     font-size: 30px;
     font-weight: 700;
     margin: 20px;
+    padding-top: 40px;
 }

@@ -16,11 +16,11 @@
   display: grid;
   grid-template-columns: 50% 50%;
   grid-gap: 2em;
-  padding-right: 40px;
-  padding-left: 10px;
-  padding-bottom: 20px;
+  padding-right: 50px;
+  padding-left: 20px;
+  padding-bottom: 30px;
   animation: 0.5s ease-out 0s 1 slideInFromRight;
-  padding-top: 50px;
+  padding-top: 60px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -42,6 +42,7 @@ a {
   grid-template-columns: 7% 86% 7%;
   align-items: center;
   position: fixed;
+  top: 0;
   width: 100%;
 }
 
