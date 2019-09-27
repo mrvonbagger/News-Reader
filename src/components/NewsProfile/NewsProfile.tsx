@@ -43,7 +43,7 @@ const NewsProfile: React.FC<Props> = ({ data, singleItem, NewsID }) => {
 
         <div className="CommentContainer">
 
-        <div className="CommentHeader">Comments</div>
+          <div className="CommentHeader">Comments</div>
 
           <Comment newsId={NewsID}/>
 

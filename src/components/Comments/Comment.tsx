@@ -33,13 +33,13 @@ const AddComment = ({ newsId }: Props) => {
           content.value = '';
         }}
       >
-        <p>Email</p>
+        <div className="EmailInput">Email</div>
         <input
           ref={node => {
             email = node;
           }}
         />
-        <p>Comment</p>
+        <div className="CommentInput">Comment</div>
         <input
           ref={node => {
             content = node;
