@@ -45,7 +45,7 @@ const AddComment = ({ newsId }: Props) => {
             content = node;
           }}
         />
-        <button type="submit">Add Comment</button>
+        <button type="submit" onClick={() => window.location.reload()}>Add Comment</button>
       </form>
     </div>
   );
