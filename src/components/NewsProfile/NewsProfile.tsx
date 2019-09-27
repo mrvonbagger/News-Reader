@@ -1,5 +1,5 @@
 import * as React from "react";
-import Comment from "../Comments/comments";
+import Comment from "../Comments/Comment";
 import "./styles.css";
 
 interface Props {
@@ -41,7 +41,28 @@ const NewsProfile: React.FC<Props> = ({ data, singleItem, NewsID }) => {
 
         </div>
 
-        <Comment newsId={NewsID}/>
+        <div className="CommentContainer">
+
+        <div className="CommentHeader">Comments</div>
+
+          <Comment newsId={NewsID}/>
+
+          {data.newsItem.comments.map( 
+            (comment: any, i:any) => 
+                ( 
+                <div className="Comment">
+                  <div className="CommentEmail">
+                    {comment.email} 
+                  </div>
+                  <div className="CommentContent">
+                    {comment.content} 
+                  </div>
+                </div>
+          
+                ), 
+            )} 
+
+        </div>
 
     </div>
     )

@@ -7,6 +7,7 @@ export const QUERY_NEWS_ITEMS = gql`
         content
         url
         img
+        comments{id, email, content}
         }
     }
 `;

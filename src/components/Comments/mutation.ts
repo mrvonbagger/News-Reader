@@ -6,7 +6,6 @@ export const QUERY_NEWS_ITEMS = gql`
         id
         email
         content
-        createdDate
         }
     }
 `;

@@ -60,3 +60,24 @@
     margin: 20px;
     padding-top: 40px;
 }
+
+.CommentContainer {
+    margin: 20px;
+}
+
+.Comment {
+    margin-top: 10px;
+}
+
+.CommentEmail {
+    font-size: 13px;
+}
+
+.CommentContent {
+    margin-top: 5px;
+}
+
+.CommentHeader {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
