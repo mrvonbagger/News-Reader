@@ -1,6 +1,7 @@
 import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import * as React from 'react';
+import "./styles.css";
 
 const ADD_COMMENT = gql`
   mutation CreateComment($input: CreateCommentInput!) {
@@ -25,7 +26,7 @@ const AddComment = ({ newsId }: Props) => {
 
   return (
     <div>
-      <form
+      <form className="CommentBox"
         onSubmit={e => {
           e.preventDefault();
           addComment({ variables: { input: {newsId, email: email.value, content: content.value} } });
@@ -33,14 +34,12 @@ const AddComment = ({ newsId }: Props) => {
           content.value = '';
         }}
       >
-        <div className="EmailInput">Email</div>
-        <input
+        <input placeholder="email"
           ref={node => {
             email = node;
           }}
         />
-        <div className="CommentInput">Comment</div>
-        <input
+        <input placeholder="comment"
           ref={node => {
             content = node;
           }}
