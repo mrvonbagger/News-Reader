@@ -19,7 +19,6 @@
   padding-right: 50px;
   padding-left: 20px;
   padding-bottom: 30px;
-  animation: 0.5s ease-out 0s 1 slideInFromRight;
   padding-top: 60px;
 }
 
@@ -57,4 +56,19 @@ a {
   color: white;
   font-size: 25px;
   text-align: center;
+}
+
+@keyframes slide-up {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.NewsList__item {
+  animation: slide-up 0.7s ease;
 }
