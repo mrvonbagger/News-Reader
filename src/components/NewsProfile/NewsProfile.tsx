@@ -29,7 +29,11 @@ const NewsProfile: React.FC<Props> = ({ data, singleItem, NewsID }) => {
           </h1>
           
           <div className={`${className}__image-list`}>
+
+            <a href={data.newsItem.url}>
             {<img src={data.newsItem.img} alt="Image not found" className={`${className}__image`} key={data.newsItem.img}/>}
+            </a>
+            
           </div>
         </div>
 
