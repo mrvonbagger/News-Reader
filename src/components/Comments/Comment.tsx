@@ -22,7 +22,7 @@ const AddComment = ({ newsId }: Props) => {
   let email: any;
   let content: any;
 
-  const [addComment, { data }] = useMutation(ADD_COMMENT);
+  const [addComment] = useMutation(ADD_COMMENT);
 
   return (
     <div>

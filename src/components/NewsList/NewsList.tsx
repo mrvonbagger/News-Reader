@@ -2,7 +2,7 @@ import { faHome } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import * as React from "react";
 import { useState } from "react";
-import { BrowserRouter as Router, HashRouter, Link, Route } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 import { NewsListqueryQuery } from "../../generated/graphql";
 import NewsProfileindex from "../NewsProfile/index";
 import "./styles.css";
