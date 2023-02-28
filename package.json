@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2",
-    "@graphql-codegen/cli": "^1.7.0",
+    "@graphql-codegen/cli": "^1.21.8",
     "@graphql-codegen/typescript": "^1.7.0",
     "@graphql-codegen/typescript-operations": "^1.7.0",
     "@graphql-codegen/typescript-react-apollo": "^1.7.0",
